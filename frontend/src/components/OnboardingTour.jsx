@@ -1,7 +1,7 @@
 import React from 'react';
 import * as ReactJoyride from 'react-joyride';
 const Joyride = ReactJoyride.default ?? ReactJoyride;
-const { STATUS } = ReactJoyride;
+const STATUS = ReactJoyride.STATUS ?? { FINISHED: 'finished', SKIPPED: 'skipped' };
 
 export default function OnboardingTour({ run, setRun }) {
   const steps = [

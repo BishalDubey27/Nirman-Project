@@ -17,6 +17,7 @@ export default function App() {
 
   useEffect(() => {
     const user = localStorage.getItem('user');
+    console.log('User from localStorage:', user);
     if (user) {
       setCurrentUser(JSON.parse(user));
       const hasSeenTour = localStorage.getItem('hasSeenTour');
@@ -72,19 +73,50 @@ function LoginPage({ setCurrentUser }) {
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState('employee');
   const [fullName, setFullName] = useState('');
+  const [tenantId, setTenantId] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  // Bypass actual API login for demo if no backend is running
-  const mockLogin = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      const mockUser = { email, role, full_name: fullName || 'Demo User' };
-      localStorage.setItem('user', JSON.stringify(mockUser));
-      setCurrentUser(mockUser);
+    setMessage('');
+    
+    const endpoint = isLogin ? '/auth/login' : '/auth/register';
+    const payload = isLogin
+      ? { email, password }
+      : { email, password, full_name: fullName, role };
+
+    try {
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.detail || 'Authentication failed');
+
+      if (!isLogin) {
+        // Registration success — switch to login tab
+        setMessage('✅ Account created! Please log in.');
+        setIsLogin(true);
+        setPassword('');
+        setFullName('');
+        setLoading(false);
+        return;
+      }
+
+      // Login success
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.access_token);
+      setCurrentUser(data.user);
+    } catch (err) {
+      setMessage('❌ ' + err.message);
+    } finally {
       setLoading(false);
-    }, 500);
+    }
   };
 
   return (
@@ -111,21 +143,36 @@ function LoginPage({ setCurrentUser }) {
         </div>
 
         {message && (
-          <div className="mb-4 p-3 bg-surface-container-lowest text-on-surface text-sm rounded-lg border border-primary/20">
+          <div className={`mb-4 p-3 text-sm rounded-lg border ${
+            message.startsWith('✅')
+              ? 'bg-secondary/10 text-secondary border-secondary/20'
+              : 'bg-error/10 text-error border-error/20'
+          }`}>
             {message}
           </div>
         )}
 
-        <form onSubmit={mockLogin} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {!isLogin && (
-            <input
-              type="text"
-              placeholder="Full Name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              required
-              className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none"
-            />
+            <>
+              <input
+                type="text"
+                placeholder="Full Name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                required
+                className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+              />
+              <select
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none appearance-none"
+              >
+                <option value="employee">👷 Employee</option>
+                <option value="admin">🛡️ Admin</option>
+                <option value="client">💼 Client</option>
+              </select>
+            </>
           )}
           <input
             type="email"
