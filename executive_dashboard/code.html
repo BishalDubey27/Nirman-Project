@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nirman Project Executive Dashboard</title>
+<!-- Google Fonts: Inter & Space Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space_Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#9cf0ff",
+                    "surface-container-highest": "#333538",
+                    "inverse-primary": "#006875",
+                    "on-tertiary": "#452b00",
+                    "inverse-surface": "#e2e2e6",
+                    "on-primary-fixed-variant": "#004f58",
+                    "error-container": "#93000a",
+                    "on-background": "#e2e2e6",
+                    "on-secondary": "#003912",
+                    "inverse-on-surface": "#2f3034",
+                    "on-error-container": "#ffdad6",
+                    "background": "#111316",
+                    "secondary-fixed": "#69ff87",
+                    "surface-bright": "#37393d",
+                    "secondary": "#40e56c",
+                    "on-error": "#690005",
+                    "surface-container-high": "#282a2d",
+                    "on-tertiary-fixed-variant": "#624000",
+                    "on-secondary-fixed": "#002108",
+                    "secondary-container": "#02c953",
+                    "secondary-fixed-dim": "#3ce36a",
+                    "surface-container": "#1e2023",
+                    "surface-tint": "#00daf3",
+                    "on-primary-container": "#00626e",
+                    "primary": "#c3f5ff",
+                    "on-surface": "#e2e2e6",
+                    "on-secondary-fixed-variant": "#00531e",
+                    "on-surface-variant": "#bac9cc",
+                    "on-primary": "#00363d",
+                    "surface-variant": "#333538",
+                    "on-tertiary-fixed": "#291800",
+                    "surface": "#111316",
+                    "tertiary-container": "#ffc779",
+                    "error": "#ffb4ab",
+                    "outline-variant": "#3b494c",
+                    "on-secondary-container": "#004d1b",
+                    "primary-fixed-dim": "#00daf3",
+                    "outline": "#849396",
+                    "primary-container": "#00e5ff",
+                    "tertiary": "#ffead2",
+                    "tertiary-fixed": "#ffddb3",
+                    "on-primary-fixed": "#001f24",
+                    "on-tertiary-container": "#7b5000",
+                    "surface-container-lowest": "#0c0e11",
+                    "surface-dim": "#111316",
+                    "surface-container-low": "#1a1c1f",
+                    "tertiary-fixed-dim": "#ffb950"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #111316; color: #e2e2e6; }
+        .font-space { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#1c1f24] flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00daf3] cursor-pointer active:opacity-80 transition-opacity hover:bg-[#1c1f24]">grid_view</span>
+<h1 class="text-lg font-bold tracking-tighter text-[#c3f5ff] font-['Space_Grotesk'] uppercase text-sm tracking-wider">NIRMAN PROJECT</h1>
+</div>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/20 overflow-hidden">
+<img class="object-cover w-full h-full" data-alt="professional corporate headshot of a business executive in dark attire with subtle blue studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDau2xlRKYWqeCJgJE9cG0l6IFS0UMAKrjB_KqmCAY8i96VMjK7IrinGUA7qgGvzi4jiRSEa-0RkVSk72yaPFaXq2jaV0-Lk3ovn1xyBiVUNKkHO4ozivBoc634MdJK9KwhR2F2a-KTKMtc7gKw-CgbjJqtchbvfMwqK5yqcMs2davuahtq-6YUraIrBC8sAa8w1B0HzW2t00UmC4ClaoehnZvBYhih5cLeHEV8jo8UxZrCrn7mB5iM20yXBqjdOjdWkRXen4u-9E"/>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-lg mx-auto">
+<!-- Global Health Metric -->
+<section class="mb-10 relative">
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-secondary/10 blur-[80px] rounded-full"></div>
+<div class="flex flex-col gap-1 relative z-10">
+<span class="text-[10px] font-bold tracking-[0.2em] text-on-surface-variant font-space uppercase">Global Health Status</span>
+<div class="flex items-baseline gap-2">
+<span class="text-7xl font-bold font-space tracking-tighter text-secondary">94</span>
+<span class="text-2xl font-bold font-space text-secondary/60">%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-high rounded-full overflow-hidden mt-4">
+<div class="h-full bg-secondary w-[94%] shadow-[0_0_12px_rgba(64,229,108,0.4)]"></div>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Agents & Quick Stats -->
+<div class="grid grid-cols-2 gap-4 mb-10">
+<!-- Active Agents Card -->
+<div class="col-span-1 bg-surface-container-high p-5 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-3">
+<span class="material-symbols-outlined text-primary-fixed-dim text-xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Active Agents</span>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-bold font-space text-primary">8</span>
+<span class="text-sm font-medium text-outline">/ 10</span>
+</div>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+</div>
+</div>
+</div>
+<!-- Compliance Ticker -->
+<div class="col-span-1 bg-surface-container-high p-5 rounded-xl border border-white/5 flex flex-col justify-between">
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">Compliance</span>
+<div class="flex flex-col">
+<span class="text-3xl font-bold font-space text-secondary">100<span class="text-sm ml-0.5">%</span></span>
+<span class="text-[10px] text-secondary/60 font-medium">LATEST AUDIT PASSED</span>
+</div>
+</div>
+</div>
+<!-- Critical Escalations Section -->
+<section class="mb-10">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-sm font-bold font-space tracking-widest text-on-surface uppercase">Critical Escalations</h2>
+<span class="px-2 py-0.5 bg-error/10 text-error text-[10px] font-bold rounded border border-error/20">2 ACTIVE</span>
+</div>
+<div class="space-y-4">
+<!-- Escalation Item 1 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex gap-4 items-start border-l-4 border-tertiary-fixed-dim">
+<div class="bg-tertiary-fixed-dim/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<h3 class="text-sm font-bold text-on-surface">Material Procurement Delay</h3>
+<span class="text-[10px] text-outline">2H AGO</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-3">Steel structural components for Sector 7-B are stalled at customs. Agent <span class="text-primary-fixed-dim">AX-09</span> requires sign-off.</p>
+<button class="bg-primary hover:bg-primary-container text-on-primary text-[10px] font-bold py-1.5 px-4 rounded-md transition-colors uppercase tracking-wider">Resolve Now</button>
+</div>
+</div>
+<!-- Escalation Item 2 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex gap-4 items-start border-l-4 border-tertiary-fixed-dim">
+<div class="bg-tertiary-fixed-dim/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">gavel</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between mb-1">
+<h3 class="text-sm font-bold text-on-surface">Compliance Override Required</h3>
+<span class="text-[10px] text-outline">5H AGO</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-3">Autonomous zoning agent encountered local ordinance conflict in site expansion phase.</p>
+<div class="flex gap-2">
+<button class="bg-surface-container-highest text-on-surface text-[10px] font-bold py-1.5 px-4 rounded-md hover:bg-surface-variant transition-colors uppercase tracking-wider">View Case</button>
+<button class="bg-surface-container-highest text-on-surface text-[10px] font-bold py-1.5 px-4 rounded-md hover:bg-surface-variant transition-colors uppercase tracking-wider">Defer</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Flow Visualizer (Implicit Task) -->
+<section class="mb-10">
+<h2 class="text-sm font-bold font-space tracking-widest text-on-surface uppercase mb-6">Autonomous Execution Flow</h2>
+<div class="bg-surface-container-lowest rounded-2xl p-6 border border-white/5 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent"></div>
+<div class="flex items-center justify-between relative z-10">
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center border border-secondary/30">
+<span class="material-symbols-outlined text-secondary text-xl">database</span>
+</div>
+<span class="text-[9px] font-bold text-outline uppercase">Intake</span>
+</div>
+<div class="flex-1 h-[1px] bg-gradient-to-r from-secondary/50 via-secondary to-primary/50 mx-2 relative">
+<div class="absolute -top-1 left-1/2 w-2 h-2 bg-secondary rounded-full shadow-[0_0_8px_#40e56c]"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-xl">memory</span>
+</div>
+<span class="text-[9px] font-bold text-outline uppercase">Processing</span>
+</div>
+<div class="flex-1 h-[1px] bg-surface-container-high mx-2"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center border border-outline/20">
+<span class="material-symbols-outlined text-outline text-xl">rocket_launch</span>
+</div>
+<span class="text-[9px] font-bold text-outline uppercase">Deploy</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-[#c3f5ff]/15 bg-[#111316]/80 backdrop-blur-xl shadow-[0_-4px_24px_rgba(195,245,255,0.06)] flex justify-around items-center h-20 pb-safe px-4">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center text-[#00daf3] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#00daf3] after:rounded-full hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Dashboard</span>
+</a>
+<!-- Intake -->
+<a class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">add_task</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Intake</span>
+</a>
+<!-- Agents -->
+<a class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Agents</span>
+</a>
+<!-- Compliance -->
+<a class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Compliance</span>
+</a>
+<!-- Execution -->
+<a class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Execution</span>
+</a>
+</nav>
+</body></html>

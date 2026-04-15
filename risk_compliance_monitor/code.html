@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Risk &amp; Compliance Monitor | NIRMAN PROJECT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#9cf0ff",
+                        "surface-container-highest": "#333538",
+                        "inverse-primary": "#006875",
+                        "on-tertiary": "#452b00",
+                        "inverse-surface": "#e2e2e6",
+                        "on-primary-fixed-variant": "#004f58",
+                        "error-container": "#93000a",
+                        "on-background": "#e2e2e6",
+                        "on-secondary": "#003912",
+                        "inverse-on-surface": "#2f3034",
+                        "on-error-container": "#ffdad6",
+                        "background": "#111316",
+                        "secondary-fixed": "#69ff87",
+                        "surface-bright": "#37393d",
+                        "secondary": "#40e56c",
+                        "on-error": "#690005",
+                        "surface-container-high": "#282a2d",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "on-secondary-fixed": "#002108",
+                        "secondary-container": "#02c953",
+                        "secondary-fixed-dim": "#3ce36a",
+                        "surface-container": "#1e2023",
+                        "surface-tint": "#00daf3",
+                        "on-primary-container": "#00626e",
+                        "primary": "#c3f5ff",
+                        "on-surface": "#e2e2e6",
+                        "on-secondary-fixed-variant": "#00531e",
+                        "on-surface-variant": "#bac9cc",
+                        "on-primary": "#00363d",
+                        "surface-variant": "#333538",
+                        "on-tertiary-fixed": "#291800",
+                        "surface": "#111316",
+                        "tertiary-container": "#ffc779",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#3b494c",
+                        "on-secondary-container": "#004d1b",
+                        "primary-fixed-dim": "#00daf3",
+                        "outline": "#849396",
+                        "primary-container": "#00e5ff",
+                        "tertiary": "#ffead2",
+                        "tertiary-fixed": "#ffddb3",
+                        "on-primary-fixed": "#001f24",
+                        "on-tertiary-container": "#7b5000",
+                        "surface-container-lowest": "#0c0e11",
+                        "surface-dim": "#111316",
+                        "surface-container-low": "#1a1c1f",
+                        "tertiary-fixed-dim": "#ffb950"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glow {
+            background: radial-gradient(circle at center, rgba(195, 245, 255, 0.15) 0%, rgba(195, 245, 255, 0) 70%);
+        }
+        .dial-mask {
+            clip-path: polygon(50% 50%, 0% 100%, 0% 0%, 100% 0%, 100% 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#111316] text-[#00daf3] flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#00daf3]">grid_view</span>
+<h1 class="font-['Space_Grotesk'] tracking-wider uppercase text-sm font-bold tracking-tighter text-[#c3f5ff]">NIRMAN PROJECT</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/20 flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional male corporate executive headshot with neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL_O_GsKqkolOHMQq1_EB-8gdQHX-IHid0zu7wnFt4ObCDR09174UxifE8kV6vNVnB3WH0s0hRxSrE86LZFpchGP1egqsAfi18TNLW-e7xYUxpWDcBnE_fbFDzeMYL-m0f8ef-VMpxBaQaduk0ktlHRwodWFkYBLXBggXTF2UgmB2GnNZKSQl6MrHEzAWqbj_9aET_OMboSC9Ed07u-z6ZLKF6-vdlTHjrsX0LSx4le_C2VGcVDifS79tpswh1Z8Otei13DVa9jGI"/>
+</div>
+</header>
+<main class="pt-24 px-6 space-y-8 max-w-2xl mx-auto">
+<!-- Dashboard Header / Identity -->
+<section class="space-y-1">
+<p class="font-label text-[10px] uppercase tracking-[0.15em] text-primary-fixed-dim">Security Protocol v4.0</p>
+<h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface">Compliance Monitor</h2>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Risk Score Dial Card (Level 2: Cards) -->
+<div class="bg-surface-container-high rounded-xl p-6 relative overflow-hidden flex flex-col items-center justify-center min-h-[280px]">
+<div class="absolute inset-0 ai-glow pointer-events-none"></div>
+<h3 class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant absolute top-6 left-6">Real-Time Risk Index</h3>
+<!-- Dial Visualization -->
+<div class="relative w-40 h-40 mt-4 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-container-lowest" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-dasharray="282.7" stroke-dashoffset="240" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline text-4xl font-bold text-on-surface">14</span>
+<span class="font-label text-[10px] text-secondary uppercase font-bold tracking-tighter">LOW RISK</span>
+</div>
+</div>
+<div class="mt-6 flex gap-4 w-full justify-around">
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Stability</p>
+<p class="text-sm font-bold text-secondary">98.2%</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Exposure</p>
+<p class="text-sm font-bold text-on-surface">0.04%</p>
+</div>
+</div>
+</div>
+<!-- Environmental Impact Card (Carbon Footprint) -->
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Environmental Impact</h3>
+<p class="text-xl font-headline font-bold text-on-surface mt-1">Carbon Footprint</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-2xl">eco</span>
+</div>
+<div class="flex-grow space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg">
+<div class="flex justify-between items-end mb-2">
+<span class="text-[10px] text-on-surface-variant uppercase font-medium">Compute Consumption</span>
+<span class="text-xs font-bold text-on-surface">1.2t CO2e</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/3"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg">
+<div class="flex justify-between items-end mb-2">
+<span class="text-[10px] text-on-surface-variant uppercase font-medium">Offsite Offset</span>
+<span class="text-xs font-bold text-secondary">+0.8t CO2e</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-2/3"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-[10px] text-on-surface-variant font-medium uppercase tracking-tighter">Project Net Zero Target: 2025</span>
+</div>
+</div>
+</div>
+<!-- Responsible AI Guardrails (Human-Required / Autonomous logic) -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<h3 class="font-headline text-lg font-bold">AI Guardrails Log</h3>
+<span class="text-[10px] font-label text-on-surface-variant uppercase tracking-widest">Last Sync: 2m ago</span>
+</div>
+<div class="space-y-3">
+<!-- Autonomous Passed Item -->
+<div class="bg-surface-container-highest rounded-xl p-4 flex items-center justify-between group hover:bg-surface-variant transition-colors border-l-4 border-secondary">
+<div class="flex items-center gap-4">
+<div class="bg-secondary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary">security</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Bias Detection System</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Autonomous scan complete • Dataset v12</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-secondary px-2 py-1 bg-secondary/10 rounded uppercase">PASSED</span>
+</div>
+<!-- Human Intervention Required Item -->
+<div class="bg-surface-container-highest rounded-xl p-4 flex items-center justify-between border-l-4 border-tertiary-fixed-dim">
+<div class="flex items-center gap-4">
+<div class="bg-tertiary-fixed-dim/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-tertiary-fixed-dim">gavel</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Ethical Constraint Review</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Manual validation required for Policy P-09</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-tertiary-fixed-dim px-2 py-1 bg-tertiary-fixed-dim/10 rounded uppercase">ACTION REQUIRED</span>
+</div>
+<!-- Active Guardrail -->
+<div class="bg-surface-container-highest rounded-xl p-4 flex items-center justify-between border-l-4 border-primary-fixed-dim">
+<div class="flex items-center gap-4">
+<div class="bg-primary-fixed-dim/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary-fixed-dim">visibility</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">PII Redaction Engine</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Continuous monitoring active</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-fixed-dim animate-pulse"></span>
+<span class="text-[10px] font-bold text-primary-fixed-dim uppercase">ACTIVE</span>
+</div>
+</div>
+<!-- Passed Constraint -->
+<div class="bg-surface-container-highest rounded-xl p-4 flex items-center justify-between border-l-4 border-secondary">
+<div class="flex items-center gap-4">
+<div class="bg-secondary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Regulatory Compliance Mapping</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Aligned with GDPR &amp; CCPA</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-secondary px-2 py-1 bg-secondary/10 rounded uppercase">PASSED</span>
+</div>
+</div>
+</section>
+<!-- Compliance Heatmap Section -->
+<section class="space-y-4">
+<h3 class="font-headline text-lg font-bold">Node Integrity</h3>
+<div class="bg-surface-container-low rounded-xl p-6">
+<div class="grid grid-cols-6 gap-2">
+<!-- Generating a pseudo-heatmap grid -->
+<div class="h-8 rounded bg-secondary"></div>
+<div class="h-8 rounded bg-secondary"></div>
+<div class="h-8 rounded bg-secondary-container"></div>
+<div class="h-8 rounded bg-secondary"></div>
+<div class="h-8 rounded bg-tertiary-fixed-dim"></div>
+<div class="h-8 rounded bg-secondary"></div>
+<div class="h-8 rounded bg-secondary"></div>
+<div class="h-8 rounded bg-secondary"></div>
+<div class="h-8 rounded bg-secondary"></div>
+<div class="h-8 rounded bg-secondary-container"></div>
+<div class="h-8 rounded bg-secondary"></div>
+<div class="h-8 rounded bg-secondary"></div>
+</div>
+<div class="mt-4 flex justify-between items-center text-[10px] text-on-surface-variant uppercase tracking-widest font-medium">
+<span>Region: US-EAST-1</span>
+<span class="flex items-center gap-2">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span> Healthy</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span> Warning</span>
+</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-[#111316]/80 backdrop-blur-xl border-t border-[#c3f5ff]/15 shadow-[0_-4px_24px_rgba(195,245,255,0.06)] flex justify-around items-center h-20 pb-safe px-4">
+<!-- Dashboard -->
+<div class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all cursor-pointer">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase">Dashboard</span>
+</div>
+<!-- Intake -->
+<div class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all cursor-pointer">
+<span class="material-symbols-outlined mb-1">add_task</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase">Intake</span>
+</div>
+<!-- Agents -->
+<div class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all cursor-pointer">
+<span class="material-symbols-outlined mb-1">smart_toy</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase">Agents</span>
+</div>
+<!-- Compliance (Active) -->
+<div class="flex flex-col items-center justify-center text-[#00daf3] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#00daf3] after:rounded-full cursor-pointer">
+<span class="material-symbols-outlined mb-1">verified_user</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase">Compliance</span>
+</div>
+<!-- Execution -->
+<div class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all cursor-pointer">
+<span class="material-symbols-outlined mb-1">account_tree</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase">Execution</span>
+</div>
+</nav>
+</body></html>

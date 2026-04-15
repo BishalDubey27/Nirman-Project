@@ -1,34 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { API_BASE_URL } from './config';
-import Navbar from './components/Navbar';
-import Dashboard from './components/Dashboard';
-import Projects from './components/Projects';
-import EmployeeView from './components/EmployeeView';
-import TaskDetail from './components/TaskDetail';
-import Decisions from './components/Decisions';
-import MultiAgentWorkbench from './components/MultiAgentWorkbench';
+import { TopAppBar, BottomNavBar } from './components/Navigation';
+import ExecutiveDashboard from './components/ExecutiveDashboard';
+import IntakePlanning from './components/IntakePlanning';
+import AgentWorkforceHub from './components/AgentWorkforceHub';
+import RiskComplianceMonitor from './components/RiskComplianceMonitor';
+import OnboardingTour from './components/OnboardingTour';
 
 export default function App() {
+  // Simulate login for this iteration, keeping user state
   const [currentUser, setCurrentUser] = useState(null);
   const [currentPage, setCurrentPage] = useState('dashboard');
-  const [selectedId, setSelectedId] = useState(null);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark'); // Default to dark for this design
+  const [runTour, setRunTour] = useState(false);
 
   useEffect(() => {
     const user = localStorage.getItem('user');
-    if (user) setCurrentUser(JSON.parse(user));
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark' || storedTheme === 'light') {
-      setTheme(storedTheme);
+    if (user) {
+      setCurrentUser(JSON.parse(user));
+      const hasSeenTour = localStorage.getItem('hasSeenTour');
+      if (!hasSeenTour) {
+        setRunTour(true);
+      }
     }
   }, []);
 
   useEffect(() => {
-    if (currentUser) {
-      localStorage.setItem('theme', theme);
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
-  }, [theme, currentUser]);
+  }, [theme]);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
@@ -45,22 +49,18 @@ export default function App() {
   }
 
   return (
-    <div className={`app theme-${theme}`}>
-      <Navbar
-        user={currentUser}
-        onLogout={handleLogout}
-        setPage={setCurrentPage}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-      />
-      <div className="container">
-        {currentPage === 'dashboard' && <Dashboard role={currentUser.role} />}
-        {currentPage === 'projects' && <Projects role={currentUser.role} />}
-        {currentPage === 'employees' && <EmployeeView role={currentUser.role} />}
-        {currentPage === 'task' && selectedId && <TaskDetail taskId={selectedId} />}
-        {currentPage === 'decisions' && <Decisions />}
-        {currentPage === 'multi-agent' && currentUser.role === 'admin' && <MultiAgentWorkbench />}
+    <div className={`app ${theme}`}>
+      <OnboardingTour run={runTour} setRun={setRunTour} />
+      <TopAppBar onToggleTheme={toggleTheme} />
+      
+      <div className="content-wrapper min-h-screen">
+        {currentPage === 'dashboard' && <ExecutiveDashboard />}
+        {currentPage === 'intake' && <IntakePlanning />}
+        {currentPage === 'agents' && <AgentWorkforceHub />}
+        {currentPage === 'compliance' && <RiskComplianceMonitor />}
       </div>
+
+      <BottomNavBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </div>
   );
 }
@@ -75,154 +75,93 @@ function LoginPage({ setCurrentUser }) {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  const handleLogin = async (e) => {
+  // Bypass actual API login for demo if no backend is running
+  const mockLogin = (e) => {
     e.preventDefault();
     setLoading(true);
-    setMessage('');
-    try {
-      const res = await fetch(`${API_BASE_URL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-      if (!res.ok) throw new Error('Login failed');
-      const data = await res.json();
-      localStorage.setItem('token', data.access_token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      setCurrentUser(data.user);
-    } catch (err) {
-      setMessage('Login failed: ' + err.message);
-    }
-    setLoading(false);
-  };
-
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage('');
-    try {
-      const res = await fetch(`${API_BASE_URL}/auth/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, full_name: fullName, role })
-      });
-      if (res.ok) {
-        setMessage('Registration successful! Please login.');
-        setIsLogin(true);
-        setEmail('');
-        setPassword('');
-        setFullName('');
-      } else {
-        const data = await res.json();
-        setMessage('Registration failed: ' + (data.detail || 'Unknown error'));
-      }
-    } catch (err) {
-      setMessage('Registration failed: ' + err.message);
-    }
-    setLoading(false);
+    setTimeout(() => {
+      const mockUser = { email, role, full_name: fullName || 'Demo User' };
+      localStorage.setItem('user', JSON.stringify(mockUser));
+      setCurrentUser(mockUser);
+      setLoading(false);
+    }, 500);
   };
 
   return (
-    <div className="login-page">
-      <div className="login-card">
-        <h1>🧠 AI Workforce Orchestrator</h1>
+    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+      <div className="bg-surface-container-high p-8 rounded-2xl w-full max-w-md border border-white/5">
+        <div className="flex items-center gap-3 mb-8 justify-center">
+          <span className="material-symbols-outlined text-primary-fixed-dim text-4xl">grid_view</span>
+          <h1 className="font-['Space_Grotesk'] text-2xl font-bold tracking-tighter text-primary">NIRMAN</h1>
+        </div>
         
-        <div className="auth-tabs">
+        <div className="flex bg-surface-container-low rounded-lg p-1 mb-6">
           <button 
-            className={`tab ${isLogin ? 'active' : ''}`}
+            className={`flex-1 py-2 text-sm font-bold rounded-md transition-colors ${isLogin ? 'bg-primary-fixed-dim text-on-primary' : 'text-on-surface-variant'}`}
             onClick={() => setIsLogin(true)}
           >
-            Login
+            LOGIN
           </button>
           <button 
-            className={`tab ${!isLogin ? 'active' : ''}`}
+            className={`flex-1 py-2 text-sm font-bold rounded-md transition-colors ${!isLogin ? 'bg-primary-fixed-dim text-on-primary' : 'text-on-surface-variant'}`}
             onClick={() => setIsLogin(false)}
           >
-            Register
+            REGISTER
           </button>
         </div>
 
         {message && (
-          <div className={`auth-message ${message.includes('successful') ? 'success' : 'error'}`}>
+          <div className="mb-4 p-3 bg-surface-container-lowest text-on-surface text-sm rounded-lg border border-primary/20">
             {message}
           </div>
         )}
 
-        {isLogin ? (
-          <form onSubmit={handleLogin}>
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <PasswordField
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              showPassword={showPassword}
-              onToggleVisibility={() => setShowPassword((current) => !current)}
-              placeholder="Password"
-            />
-            <button type="submit" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
-            </button>
-          </form>
-        ) : (
-          <form onSubmit={handleRegister}>
+        <form onSubmit={mockLogin} className="space-y-4">
+          {!isLogin && (
             <input
               type="text"
               placeholder="Full Name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               required
+              className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none"
             />
+          )}
+          <input
+            type="email"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+          />
+          <div className="relative">
             <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <PasswordField
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              showPassword={showPassword}
-              onToggleVisibility={() => setShowPassword((current) => !current)}
-              placeholder="Password"
+              required
+              className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg p-3 text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none"
             />
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
-              <option value="employee">Employee</option>
-              <option value="admin">Admin</option>
-              <option value="client">Client</option>
-            </select>
-            <button type="submit" disabled={loading}>
-              {loading ? 'Registering...' : 'Register'}
+            <button
+              type="button"
+              className="absolute right-3 top-3 text-on-surface-variant"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              <span className="material-symbols-outlined text-sm">{showPassword ? 'visibility_off' : 'visibility'}</span>
             </button>
-          </form>
-        )}
+          </div>
+          
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="w-full py-3 bg-primary-fixed-dim hover:bg-primary text-on-primary font-bold rounded-lg transition-colors mt-6 uppercase tracking-wider"
+          >
+            {loading ? 'Authenticating...' : isLogin ? 'Access Portal' : 'Create Account'}
+          </button>
+        </form>
       </div>
-    </div>
-  );
-}
-
-function PasswordField({ value, onChange, showPassword, onToggleVisibility, placeholder }) {
-  return (
-    <div className="password-field">
-      <input
-        type={showPassword ? 'text' : 'password'}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        required
-      />
-      <button
-        type="button"
-        className="password-toggle"
-        onClick={onToggleVisibility}
-      >
-        {showPassword ? 'Hide' : 'Peek'}
-      </button>
     </div>
   );
 }

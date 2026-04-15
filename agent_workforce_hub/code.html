@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed": "#9cf0ff",
+            "surface-container-highest": "#333538",
+            "inverse-primary": "#006875",
+            "on-tertiary": "#452b00",
+            "inverse-surface": "#e2e2e6",
+            "on-primary-fixed-variant": "#004f58",
+            "error-container": "#93000a",
+            "on-background": "#e2e2e6",
+            "on-secondary": "#003912",
+            "inverse-on-surface": "#2f3034",
+            "on-error-container": "#ffdad6",
+            "background": "#111316",
+            "secondary-fixed": "#69ff87",
+            "surface-bright": "#37393d",
+            "secondary": "#40e56c",
+            "on-error": "#690005",
+            "surface-container-high": "#282a2d",
+            "on-tertiary-fixed-variant": "#624000",
+            "on-secondary-fixed": "#002108",
+            "secondary-container": "#02c953",
+            "secondary-fixed-dim": "#3ce36a",
+            "surface-container": "#1e2023",
+            "surface-tint": "#00daf3",
+            "on-primary-container": "#00626e",
+            "primary": "#c3f5ff",
+            "on-surface": "#e2e2e6",
+            "on-secondary-fixed-variant": "#00531e",
+            "on-surface-variant": "#bac9cc",
+            "on-primary": "#00363d",
+            "surface-variant": "#333538",
+            "on-tertiary-fixed": "#291800",
+            "surface": "#111316",
+            "tertiary-container": "#ffc779",
+            "error": "#ffb4ab",
+            "outline-variant": "#3b494c",
+            "on-secondary-container": "#004d1b",
+            "primary-fixed-dim": "#00daf3",
+            "outline": "#849396",
+            "primary-container": "#00e5ff",
+            "tertiary": "#ffead2",
+            "tertiary-fixed": "#ffddb3",
+            "on-primary-fixed": "#001f24",
+            "on-tertiary-container": "#7b5000",
+            "surface-container-lowest": "#0c0e11",
+            "surface-dim": "#111316",
+            "surface-container-low": "#1a1c1f",
+            "tertiary-fixed-dim": "#ffb950"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Space Grotesk"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .active-glow {
+      background: radial-gradient(circle at center, rgba(0, 218, 243, 0.15) 0%, rgba(0, 218, 243, 0) 70%);
+    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#111316] text-[#00daf3] flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#00daf3] hover:bg-[#1c1f24] transition-colors p-2 rounded-lg cursor-pointer">grid_view</span>
+<h1 class="font-['Space_Grotesk'] tracking-wider uppercase text-sm font-bold tracking-tighter text-[#c3f5ff]">NIRMAN PROJECT</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Portrait of a professional project manager in a clean studio setting with blue lighting accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiPyGV1FodlJq23rbsqApceMKcsuYhoBfHPDTL9dgpQznHcU8c-w1U3d_HHIqypDu4OA0AcdxglPJPKHBnGQojrFWGxJ36qd2mx0IXXQ2E-MPuXf_az2bF8Eja8Gx6PoH5bO1sM6Y8BuCF77d82aXoeIZC3qFVRCWti03oyPiH3NWizrcEtXDPAacjHQqyZSvW60z9WsyweuH74LgAwQRIdwXbNpw8PZjdqnSgPtHgLEbTjf8C-hlcdRbjlUDqGnwfN_4NslgM3eA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="pt-20 pb-24 px-4 min-h-screen max-w-5xl mx-auto">
+<!-- Header Section -->
+<section class="mb-8 px-2">
+<div class="flex items-baseline justify-between">
+<div>
+<p class="font-headline text-[0.65rem] uppercase tracking-[0.2em] text-primary-fixed-dim mb-1">Mission Control</p>
+<h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface">Agent Workforce</h2>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label text-[10px] font-bold uppercase tracking-wider text-secondary">System Online</span>
+</div>
+</div>
+</section>
+<!-- Agent Hub Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Agent 01: Intake (Active) -->
+<div class="relative group surface-container-high bg-surface-container-high p-5 rounded-xl transition-all hover:translate-y-[-2px] overflow-hidden">
+<div class="absolute inset-0 active-glow"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-primary-fixed-dim uppercase tracking-widest mb-1">A-01</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Intake</h3>
+</div>
+<div class="bg-primary/10 border border-primary/20 px-2 py-0.5 rounded text-[10px] font-bold text-primary-fixed-dim uppercase tracking-tighter">ACTIVE</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-secondary">98<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">input_circle</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[98%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 02: Planning (Idle) -->
+<div class="relative group bg-surface-container-low p-5 rounded-xl transition-all border border-transparent hover:border-outline-variant/30">
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-on-surface-variant uppercase tracking-widest mb-1">A-02</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Planning</h3>
+</div>
+<div class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">IDLE</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-on-surface">100<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">calendar_today</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-on-surface-variant/30 w-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 03: Staffing (Busy) -->
+<div class="relative group bg-surface-container-low p-5 rounded-xl transition-all border-l-4 border-tertiary-fixed-dim">
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-tertiary-fixed-dim uppercase tracking-widest mb-1">A-03</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Staffing</h3>
+</div>
+<div class="bg-tertiary-container/10 border border-tertiary-container/20 px-2 py-0.5 rounded text-[10px] font-bold text-tertiary-fixed-dim uppercase tracking-tighter">BUSY</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-tertiary-fixed-dim">84<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl">groups</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim w-[84%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 04: Risk (Active) -->
+<div class="relative group surface-container-high bg-surface-container-high p-5 rounded-xl transition-all hover:translate-y-[-2px] overflow-hidden">
+<div class="absolute inset-0 active-glow"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-primary-fixed-dim uppercase tracking-widest mb-1">A-04</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Risk</h3>
+</div>
+<div class="bg-primary/10 border border-primary/20 px-2 py-0.5 rounded text-[10px] font-bold text-primary-fixed-dim uppercase tracking-tighter">ACTIVE</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-secondary">92<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[92%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 05: Execution (Active) -->
+<div class="relative group surface-container-high bg-surface-container-high p-5 rounded-xl transition-all hover:translate-y-[-2px] overflow-hidden">
+<div class="absolute inset-0 active-glow"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-primary-fixed-dim uppercase tracking-widest mb-1">A-05</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Execution</h3>
+</div>
+<div class="bg-primary/10 border border-primary/20 px-2 py-0.5 rounded text-[10px] font-bold text-primary-fixed-dim uppercase tracking-tighter">ACTIVE</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-secondary">95<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[95%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 06: Communication (Idle) -->
+<div class="relative group bg-surface-container-low p-5 rounded-xl transition-all">
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-on-surface-variant uppercase tracking-widest mb-1">A-06</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Communication</h3>
+</div>
+<div class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">IDLE</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-on-surface">100<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">forum</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-on-surface-variant/30 w-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 07: Escalation (Busy) -->
+<div class="relative group bg-surface-container-low p-5 rounded-xl transition-all border-l-4 border-error">
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-error uppercase tracking-widest mb-1">A-07</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Escalation</h3>
+</div>
+<div class="bg-error-container/20 px-2 py-0.5 rounded text-[10px] font-bold text-error uppercase tracking-tighter">BUSY</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-error">72<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-error text-3xl">warning</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-error w-[72%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 08: Delivery Review (Idle) -->
+<div class="relative group bg-surface-container-low p-5 rounded-xl transition-all">
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-on-surface-variant uppercase tracking-widest mb-1">A-08</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Delivery Review</h3>
+</div>
+<div class="bg-surface-container-highest px-2 py-0.5 rounded text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">IDLE</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-on-surface">99<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-3xl">fact_check</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-on-surface-variant/30 w-[99%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 09: Rebalance (Active) -->
+<div class="relative group surface-container-high bg-surface-container-high p-5 rounded-xl transition-all hover:translate-y-[-2px] overflow-hidden">
+<div class="absolute inset-0 active-glow"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-primary-fixed-dim uppercase tracking-widest mb-1">A-09</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Rebalance</h3>
+</div>
+<div class="bg-primary/10 border border-primary/20 px-2 py-0.5 rounded text-[10px] font-bold text-primary-fixed-dim uppercase tracking-tighter">ACTIVE</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-secondary">91<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">balance</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[91%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Agent 10: Project Observer (Active) -->
+<div class="relative group surface-container-high bg-surface-container-high p-5 rounded-xl transition-all hover:translate-y-[-2px] overflow-hidden">
+<div class="absolute inset-0 active-glow"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<div class="flex flex-col">
+<span class="font-headline text-[0.65rem] text-primary-fixed-dim uppercase tracking-widest mb-1">A-10</span>
+<h3 class="font-headline text-lg font-bold text-on-surface">Project Observer</h3>
+</div>
+<div class="bg-primary/10 border border-primary/20 px-2 py-0.5 rounded text-[10px] font-bold text-primary-fixed-dim uppercase tracking-tighter">ACTIVE</div>
+</div>
+<div class="mt-auto space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mb-1">Health Score</p>
+<p class="font-headline text-2xl font-bold text-secondary">100<span class="text-xs ml-0.5 text-on-surface-variant">%</span></p>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">visibility</span>
+</div>
+<div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-[#c3f5ff]/15 bg-[#111316]/80 backdrop-blur-xl shadow-[0_-4px_24px_rgba(195,245,255,0.06)] flex justify-around items-center h-20 pb-safe px-4">
+<button class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200">
+<span class="material-symbols-outlined">add_task</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Intake</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#00daf3] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#00daf3] after:rounded-full Active: scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Agents</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Compliance</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Execution</span>
+</button>
+</nav>
+</body></html>

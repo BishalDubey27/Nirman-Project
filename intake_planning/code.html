@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NIRMAN PROJECT - Intake &amp; Planning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#9cf0ff",
+                        "surface-container-highest": "#333538",
+                        "inverse-primary": "#006875",
+                        "on-tertiary": "#452b00",
+                        "inverse-surface": "#e2e2e6",
+                        "on-primary-fixed-variant": "#004f58",
+                        "error-container": "#93000a",
+                        "on-background": "#e2e2e6",
+                        "on-secondary": "#003912",
+                        "inverse-on-surface": "#2f3034",
+                        "on-error-container": "#ffdad6",
+                        "background": "#111316",
+                        "secondary-fixed": "#69ff87",
+                        "surface-bright": "#37393d",
+                        "secondary": "#40e56c",
+                        "on-error": "#690005",
+                        "surface-container-high": "#282a2d",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "on-secondary-fixed": "#002108",
+                        "secondary-container": "#02c953",
+                        "secondary-fixed-dim": "#3ce36a",
+                        "surface-container": "#1e2023",
+                        "surface-tint": "#00daf3",
+                        "on-primary-container": "#00626e",
+                        "primary": "#c3f5ff",
+                        "on-surface": "#e2e2e6",
+                        "on-secondary-fixed-variant": "#00531e",
+                        "on-surface-variant": "#bac9cc",
+                        "on-primary": "#00363d",
+                        "surface-variant": "#333538",
+                        "on-tertiary-fixed": "#291800",
+                        "surface": "#111316",
+                        "tertiary-container": "#ffc779",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#3b494c",
+                        "on-secondary-container": "#004d1b",
+                        "primary-fixed-dim": "#00daf3",
+                        "outline": "#849396",
+                        "primary-container": "#00e5ff",
+                        "tertiary": "#ffead2",
+                        "tertiary-fixed": "#ffddb3",
+                        "on-primary-fixed": "#001f24",
+                        "on-tertiary-container": "#7b5000",
+                        "surface-container-lowest": "#0c0e11",
+                        "surface-dim": "#111316",
+                        "surface-container-low": "#1a1c1f",
+                        "tertiary-fixed-dim": "#ffb950"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glow-pulse {
+            background: radial-gradient(circle at center, rgba(0, 218, 243, 0.15) 0%, rgba(0, 218, 243, 0) 70%);
+        }
+        body {
+            background-color: #111316;
+            color: #e2e2e6;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#1c1f24] flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#00daf3]">grid_view</span>
+<h1 class="font-['Space_Grotesk'] tracking-wider uppercase text-sm font-bold tracking-tighter text-[#c3f5ff]">NIRMAN PROJECT</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up minimalist portrait of a professional in a tech environment with subtle blue backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVOsVoi0zmrTulbqdZavXmLOi__kSGQtqeKJrMmIm3s9NY2YOtIK1JWQEoCcwTxTkS4sd3X_Kk8gjLwFCJLhUcvsOc9egvmMRBnzkKmSbDJ4rlOB7Xo_q5iDrOVEDj4SBrpEW2OIwg27KCLAVLWUjCDBoI5rsgedT00N-1IplqHUiCwNBfCDB1RM7O10q6rF-BzkkcZF6goJMJ6A58bAcLXo2yXW0Hf_ixbCWiDCHoibyQ4s7mkFRpz84qIABCZPwrxCnKPRpb310"/>
+</div>
+</header>
+<main class="pt-20 pb-28 px-4 md:px-8 max-w-5xl mx-auto space-y-6">
+<!-- Agents Status Section -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-4 rounded-xl border-l-2 border-primary-fixed-dim/50 relative overflow-hidden">
+<div class="ai-glow-pulse absolute inset-0 pointer-events-none"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline text-[10px] uppercase tracking-[0.1em] text-primary-fixed-dim">Active Agent</span>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(64,229,108,0.6)]"></div>
+<span class="text-[9px] text-secondary font-medium">LIVE</span>
+</div>
+</div>
+<h3 class="font-headline text-lg text-primary leading-tight">Intake Agent</h3>
+<p class="text-xs text-on-surface-variant mt-1">Scanning business requirements...</p>
+</div>
+<div class="bg-surface-container-high p-4 rounded-xl border-l-2 border-primary-fixed-dim/50 relative overflow-hidden">
+<div class="ai-glow-pulse absolute inset-0 pointer-events-none"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline text-[10px] uppercase tracking-[0.1em] text-primary-fixed-dim">Active Agent</span>
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(64,229,108,0.6)]"></div>
+<span class="text-[9px] text-secondary font-medium">LIVE</span>
+</div>
+</div>
+<h3 class="font-headline text-lg text-primary leading-tight">Planning Agent</h3>
+<p class="text-xs text-on-surface-variant mt-1">Optimizing execution paths...</p>
+</div>
+</section>
+<!-- Input Section -->
+<section class="bg-surface-container rounded-xl p-6 space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline text-xl text-primary tracking-tight">Project Genesis</h2>
+<span class="text-[10px] font-label uppercase tracking-widest text-outline">v2.4 Neural Parser</span>
+</div>
+<div class="relative">
+<label class="sr-only" for="business-request">Input Business Request</label>
+<textarea class="w-full h-40 bg-surface-container-lowest border-none border-b border-primary-fixed-dim/20 focus:ring-0 focus:border-primary-fixed-dim text-on-surface placeholder-on-surface-variant/40 rounded-lg p-4 font-body text-sm resize-none transition-all" id="business-request" placeholder="Describe your business objective, scope, and technical constraints here..."></textarea>
+<div class="absolute bottom-3 right-3 flex items-center gap-2 opacity-40">
+<span class="material-symbols-outlined text-xs">attachment</span>
+<span class="material-symbols-outlined text-xs">mic</span>
+</div>
+</div>
+<button class="w-full h-14 bg-gradient-to-r from-primary-fixed-dim to-primary-container text-on-primary font-headline font-bold uppercase tracking-widest text-sm rounded-lg flex items-center justify-center gap-3 active:scale-[0.98] transition-transform shadow-[0_0_30px_rgba(0,218,243,0.15)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                Parse Requirements
+            </button>
+</section>
+<!-- Task List Preview -->
+<section class="space-y-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="font-headline text-sm uppercase tracking-[0.2em] text-on-surface-variant">Generated Task List</h3>
+<span class="text-xs text-outline">4 nodes active</span>
+</div>
+<div class="space-y-3">
+<!-- Task Card 1: Processing -->
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-4 group transition-colors hover:bg-surface-container">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-semibold text-on-surface">Data Schema Validation</h4>
+<span class="text-[10px] font-medium text-primary-fixed-dim uppercase tracking-tighter">Processing</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 mt-2 rounded-full overflow-hidden">
+<div class="bg-primary-fixed-dim h-full w-2/3 animate-pulse"></div>
+</div>
+</div>
+</div>
+<!-- Task Card 2: Ready -->
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-4 group transition-colors hover:bg-surface-container">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-semibold text-on-surface">Compliance Protocol Check</h4>
+<span class="text-[10px] font-medium text-secondary uppercase tracking-tighter">Validated</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1">GDPR and SOC2 alignment verified by Agent-7.</p>
+</div>
+</div>
+<!-- Task Card 3: Human Needed -->
+<div class="bg-surface-container-low p-4 rounded-xl border-l-4 border-tertiary-fixed-dim flex items-center gap-4 group transition-colors hover:bg-surface-container">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary-fixed-dim">
+<span class="material-symbols-outlined">person_alert</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-semibold text-on-surface">Budgetary Cap Override</h4>
+<span class="text-[10px] font-medium text-tertiary-fixed-dim uppercase tracking-tighter">Human Action</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1">Planning agent suggests 12% increase for redundancy.</p>
+</div>
+</div>
+<!-- Task Card 4: Scheduled -->
+<div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-4 group transition-colors hover:bg-surface-container">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<h4 class="text-sm font-semibold text-on-surface">Infrastructure Provisioning</h4>
+<span class="text-[10px] font-medium text-outline uppercase tracking-tighter">Queued</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1">Scheduled after Schema Validation completion.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-[#c3f5ff]/15 bg-[#111316]/80 backdrop-blur-xl shadow-[0_-4px_24px_rgba(195,245,255,0.06)] h-20 pb-safe px-4 flex justify-around items-center">
+<a class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00daf3] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#00daf3] after:rounded-full Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_task</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Intake</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Agents</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Compliance</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e2e2e6]/60 hover:text-[#c3f5ff] transition-all Active: scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-['Inter'] text-[10px] font-medium tracking-[0.05em] uppercase mt-1">Execution</span>
+</a>
+</nav>
+</body></html>
