@@ -6,7 +6,7 @@ import ExecutiveDashboard from './components/ExecutiveDashboard';
 import IntakePlanning from './components/IntakePlanning';
 import AgentWorkforceHub from './components/AgentWorkforceHub';
 import RiskComplianceMonitor from './components/RiskComplianceMonitor';
-import OnboardingTour from './components/OnboardingTour';
+// import OnboardingTour from './components/OnboardingTour';
 
 export default function App() {
   // Simulate login for this iteration, keeping user state
@@ -51,7 +51,7 @@ export default function App() {
 
   return (
     <div className={`app ${theme}`}>
-      <OnboardingTour run={runTour} setRun={setRunTour} />
+      {/* <OnboardingTour run={runTour} setRun={setRunTour} /> */}
       <TopAppBar onToggleTheme={toggleTheme} />
       
       <div className="content-wrapper min-h-screen">
