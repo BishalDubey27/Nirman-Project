@@ -1,6 +1,8 @@
 import React from 'react';
+import ProgressTracker from './ProgressTracker';
 
 export default function ExecutiveDashboard() {
+  const token = localStorage.getItem('token');
   return (
     <main className="pt-24 pb-32 px-6 max-w-lg mx-auto">
       {/* Global Health Metric */}
@@ -118,6 +120,14 @@ export default function ExecutiveDashboard() {
             </div>
           </div>
         </div>
+      </section>
+      {/* Project Progress Tracker */}
+      <section className="mb-10">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-sm font-bold font-space tracking-widest text-on-surface uppercase">Project Progress</h2>
+          <span className="text-[10px] text-on-surface-variant uppercase tracking-widest">Live</span>
+        </div>
+        <ProgressTracker token={token} />
       </section>
     </main>
   );

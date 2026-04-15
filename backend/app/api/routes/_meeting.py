@@ -148,3 +148,53 @@ def route_delete_meeting(
     db.commit()
     
     return {"success": True, "meeting_id": meeting_id}
+
+
+# ─────────────────────────────────────────────
+# FEATURE: Complete Meeting (Unlocks Task Assignment)
+# ─────────────────────────────────────────────
+@router.post("/{meeting_id}/complete", response_model=MeetingRead)
+def route_complete_meeting(
+    meeting_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """
+    Mark a meeting as completed. 
+    For planning/kickoff meetings, this unlocks task assignment for the project.
+    """
+    meeting = db.query(Meeting).filter(Meeting.id == meeting_id).first()
+    if not meeting:
+        raise HTTPException(status_code=404, detail="Meeting not found")
+
+    if current_user.id != meeting.created_by and current_user.role != "admin":
+        raise HTTPException(status_code=403, detail="Not authorized to complete this meeting")
+
+    if meeting.completed_at:
+        raise HTTPException(status_code=409, detail="Meeting is already marked as completed")
+
+    meeting.completed_at = datetime.utcnow()
+    db.commit()
+    db.refresh(meeting)
+
+    # Notify project admin that task assignment is now unblocked
+    meeting_type_label = meeting.meeting_type.capitalize()
+    from app.models._project import Project
+    from app.models._notification import Notification
+    project = db.query(Project).filter(Project.id == meeting.project_id).first()
+    if project:
+        db.add(Notification(
+            user_id=project.admin_id,
+            project_id=meeting.project_id,
+            type="meeting_scheduled",
+            title=f"✅ {meeting_type_label} meeting completed — task assignment unlocked",
+            body=(
+                f"The meeting \"{meeting.title}\" has been marked complete. "
+                "You can now assign tasks to team members for this project."
+            ),
+            triggered_by="system",
+        ))
+        db.commit()
+
+    return meeting
+

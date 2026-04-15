@@ -28,6 +28,7 @@ from app.api.routes import _autopm as _autopm_routes
 from app.api.routes import _invite as _invite_routes
 from app.api.routes import _task_assignment as _task_assignment_routes
 from app.api.routes import _task_progress as _task_progress_routes
+from app.api.routes import _notification as _notification_routes
 from app.api.routes import _multi_agent as _multi_agent_routes
 
 # Models — must be imported so Base.metadata knows about all tables
@@ -41,7 +42,8 @@ from app.models import (
     _checkpoint, _communication,
     _performance_point, _audit_log,
     _workflow_run, _agent_run,
-    _tenant, _team, _team_invite
+    _tenant, _team, _team_invite,
+    _notification
 )
 from app.services._auth_service import bootstrap_tenant_data
 
@@ -142,6 +144,7 @@ app.include_router(_invite_routes.router)
 app.include_router(_task_assignment_routes.router)
 app.include_router(_task_progress_routes.router)
 app.include_router(_multi_agent_routes.router)
+app.include_router(_notification_routes.router)
 
 
 @app.get("/")

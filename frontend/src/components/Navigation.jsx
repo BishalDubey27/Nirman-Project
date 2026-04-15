@@ -1,14 +1,17 @@
 import React from 'react';
+import NotificationBell from './NotificationBell';
 
 export function TopAppBar({ onToggleTheme }) {
+  const token = localStorage.getItem('token');
   return (
     <header className="fixed top-0 w-full z-50 bg-[#111316] text-[#00daf3] flex justify-between items-center px-6 h-16 w-full">
       <div className="flex items-center gap-3">
         <span className="material-symbols-outlined text-[#00daf3]">grid_view</span>
         <h1 className="font-['Space_Grotesk'] tracking-wider uppercase text-sm font-bold tracking-tighter text-[#c3f5ff]">NIRMAN PROJECT</h1>
       </div>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
         <span className="material-symbols-outlined cursor-pointer hover:bg-surface-container p-1 rounded-full transition-colors" onClick={onToggleTheme}>light_mode</span>
+        <NotificationBell token={token} />
         <div className="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center overflow-hidden tour-profile">
           <img alt="User Profile" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVOsVoi0zmrTulbqdZavXmLOi__kSGQtqeKJrMmIm3s9NY2YOtIK1JWQEoCcwTxTkS4sd3X_Kk8gjLwFCJLhUcvsOc9egvmMRBnzkKmSbDJ4rlOB7Xo_q5iDrOVEDj4SBrpEW2OIwg27KCLAVLWUjCDBoI5rsgedT00N-1IplqHUiCwNBfCDB1RM7O10q6rF-BzkkcZF6goJMJ6A58bAcLXo2yXW0Hf_ixbCWiDCHoibyQ4s7mkFRpz84qIABCZPwrxCnKPRpb310" />
         </div>
@@ -16,6 +19,7 @@ export function TopAppBar({ onToggleTheme }) {
     </header>
   );
 }
+
 
 export function BottomNavBar({ currentPage, setCurrentPage }) {
   const tabs = [
